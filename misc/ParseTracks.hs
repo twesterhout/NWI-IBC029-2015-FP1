@@ -27,11 +27,6 @@ parseNummersDBs = do
         where   extract__ (Right y) = y 
                 extract__ (Left x)  = error $ "could not parse: " ++ show x  
 
-{-
-parseNummers :: String -> Either ParseError [Song]
-parseNummers = parse nummersFile "(unknown)"
--}
-
 data Song = Song    { group :: String
                     , album :: String
                     , year :: Int
@@ -81,5 +76,4 @@ record = do
         where   int = read <$> many digit
                 line = many (noneOf "\r\n")
                 csv_line = sepBy (many (noneOf ",\r\n")) (char ',')
-
 
